@@ -1,0 +1,31 @@
+{
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(tools) Build",
+            "task": "build",
+            "tooltip": "build"
+        },
+        {
+            "label": "$(notebook-delete-cell) Clean",
+            "task": "clean",
+            "tooltip": "clean"
+        },
+        {
+            "label": "$(notebook-delete-cell) $(tools) Re-bulid", 
+            "task": "rebuild",
+            "tooltip": "rebuild"
+        },
+        {
+            "label": "$(zap) Download",
+            "task": "flash",
+            "tooltip": "flash"
+        }
+    ],
+    "cortex-debug.openocdPath": "D:\\TOOL\\OPENOCD\\BIN\\OPENOCD.EXE",
+    "files.associations": {
+        "*.py": "python",
+        "gd32f10x.h": "c",
+        "my_i2c_soft.h": "c",
+        "usart.h": "c"
+    }
+}
