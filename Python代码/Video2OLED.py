@@ -15,6 +15,34 @@ def img2array(frame):
     
     return array
 
+def change(gray_avg,img):
+    step =51 # int(255/(2*2+1))
+    gray_scale = int(gray_avg/step)
+    if gray_scale == 0:
+        img[0][0]=0
+        img[0][1]=0
+        img[1][0]=0
+        img[1][1]=0
+    elif gray_scale==1:
+        img[0][0]=0
+        img[0][1]=0
+        img[1][0]=255
+        img[1][1]=0
+    elif gray_scale==2:
+        img[0][0]=0
+        img[0][1]=255
+        img[1][0]=255
+        img[1][1]=0
+    elif gray_scale==3:
+        img[0][0]=0
+        img[0][1]=255
+        img[1][0]=255
+        img[1][1]=255
+    else :
+        img[0][0]=255
+        img[0][1]=255
+        img[1][0]=255
+        img[1][1]=255        
 
 #打开串口
 serial_port = serial.Serial('COM4', 921600)
@@ -48,6 +76,13 @@ while cap.isOpened():
     img = cv2.resize(img, (132, 64))                         #修改尺寸
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)              #灰度化
     img = cv2.threshold(img, 170, 255, cv2.THRESH_BINARY)[1] #二值化
+    # k_size = 2 
+    # for h in range(0,64,k_size):
+    #     for w in range(0,132,k_size):
+    #         gray_avg = int(sum([img[h][w],img[h][w+1],img[h+1][w],img[h+1][w+1]])/(k_size*k_size))
+    #         temp =img[h:h+2,w:w+2] #取样
+    #         change(gray_avg,temp)
+
 
     #预览图像
     cv2.imshow('img', img)
